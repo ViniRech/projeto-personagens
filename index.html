@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bob Esponja Stores</title>
+
+    <!-- VUE CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- STYLE -->
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+    <div id="app">
+
+        <main>
+            <section class="secao-produtos">
+
+                <div @mouseover="mostrarProduto(produto.nome)" class="item-produto" v-for="produto in produtos" :key="produto.id">
+                    <img :src="produto.img" alt="">
+                    {{ produto.nome }}
+                </div>
+                
+            </section>
+
+            <section class="secao-dados">
+                <div>
+                    {{ produto }}
+                </div>
+            </section>
+        </main>         
+
+    </div>
+    
+    
+    <script>
+
+        const { createApp, ref } = Vue
+
+        createApp({
+            setup() {
+             
+             const produtos = [
+                {id: 1, nome: 'cubo 1', img: './assets/img/cubo-teste.jpg'},
+                {id: 2, nome: 'cubo 2', img: './assets/img/cubo-teste.jpg'},
+             ];
+
+             const produto = ref();
+
+             const mostrarProduto = (product) => {
+                produto.value = product
+             };
+
+            return {
+               produtos,
+               produto, 
+            }
+            }
+        }).mount('#app')
+    </script>
+    
+</body>
+</html>
