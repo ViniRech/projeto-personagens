@@ -16,19 +16,49 @@
     <div id="app">
 
         <main>
-            <section class="secao-produtos">
+            <section v-if="!dado" class="secao-produtos">
 
-                <div @mouseover="mostrarProduto(produto.nome)" class="item-produto" v-for="produto in produtos" :key="produto.id">
+                <div  
+                    @click="mostrarProduto(produto)" 
+                    class="item-produto"
+                    v-for="produto in produtos" 
+                    :key="produto.id"
+                >
                     <img :src="produto.img" alt="">
                     {{ produto.nome }}
+                    
                 </div>
                 
             </section>
 
-            <section class="secao-dados">
-                <div>
-                    {{ produto }}
-                </div>
+            <section v-if="dado" class="secao-dados">
+                
+                <section class="secao-dados-imagem">
+
+                    <img :src="dado.img" alt="">
+
+                    <div>
+                        <img src="./assets/img/cubo-teste.jpg" alt="">
+                        <img src="./assets/img/cubo2.webp" alt="">
+                    </div>
+
+                </section>
+
+                <section class="secao-dados-informacao">
+
+                    <div>
+                        <button class="botao-voltar" @click="mostrarProduto()">voltar</button>
+                        <div>Carrinho: </div>
+                    </div>
+
+                    <h1>Nome do Produto</h1>
+
+                    <p>Preço</p>
+
+                    <button class="botao-carrinho">Adicionar ao carrinho</button>
+
+                </section>
+
             </section>
         </main>         
 
@@ -47,15 +77,16 @@
                 {id: 2, nome: 'cubo 2', img: './assets/img/cubo-teste.jpg'},
              ];
 
-             const produto = ref();
+             const dado = ref();
 
              const mostrarProduto = (product) => {
-                produto.value = product
+                dado.value = product
              };
 
             return {
                produtos,
-               produto, 
+               dado, 
+               mostrarProduto,
             }
             }
         }).mount('#app')

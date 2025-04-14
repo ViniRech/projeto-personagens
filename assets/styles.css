@@ -5,16 +5,15 @@
 }
 
 main {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
     gap: 10px;
     padding: 10px;
 }
 
 .secao-produtos {
-   display: grid;
-   grid-template-columns: 1fr 1fr;
-   gap: 10px; 
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
 }
 
 .item-produto {
@@ -26,4 +25,35 @@ main {
 
 .item-produto img {
     width: 70%;
+}
+
+.secao-dados {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.secao-dados-imagem {
+    display: grid;
+    justify-items: center;
+}
+
+.secao-dados-imagem img {
+    width: 80%;
+}
+
+.secao-dados-imagem > div {
+    display: flex;
+    padding: 0 1rem;
+    gap: 10px;
+}
+
+.secao-dados-imagem > div > img {
+    width: 20%;
+    border: 1px solid black;
+}
+
+.secao-dados-informacao > div {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
 }
