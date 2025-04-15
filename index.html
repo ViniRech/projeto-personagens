@@ -18,13 +18,15 @@
         <main>
             <section v-if="!dado" class="secao-produtos">
 
+                <h1>Nossos Produtos</h1>
+
                 <div  
                     @click="mostrarProduto(produto)" 
                     class="item-produto"
                     v-for="produto in produtos" 
                     :key="produto.id"
                 >
-                    <img :src="produto.img" alt="">
+                    <img :src="produto.imgs[0]">
                     {{ produto.nome }}
                     
                 </div>
@@ -35,11 +37,10 @@
                 
                 <section class="secao-dados-imagem">
 
-                    <img :src="dado.img" alt="">
+                    <img :src="dado.imgs[posicaoImagem]">
 
                     <div>
-                        <img src="./assets/img/cubo-teste.jpg" alt="">
-                        <img src="./assets/img/cubo2.webp" alt="">
+                        <img v-for="(img, index) in dado.imgs" :key="index" :src="img" @mouseover="mudarImagem(index)">
                     </div>
 
                 </section>
@@ -47,15 +48,15 @@
                 <section class="secao-dados-informacao">
 
                     <div>
-                        <button class="botao-voltar" @click="mostrarProduto()">voltar</button>
-                        <div>Carrinho: </div>
+                        <img class="botao-voltar" @click="mostrarProduto()" src="./assets/img/down-arrow.png">
+                        <div>Carrinho: {{ carrinho }}</div>
                     </div>
 
-                    <h1>Nome do Produto</h1>
+                    <h1>{{ dado.nome }}</h1>
 
                     <p>Preço</p>
 
-                    <button class="botao-carrinho">Adicionar ao carrinho</button>
+                    <button @click="addCarrinho" class="botao-carrinho">Adicionar ao carrinho</button>
 
                 </section>
 
@@ -73,8 +74,10 @@
             setup() {
              
              const produtos = [
-                {id: 1, nome: 'cubo 1', img: './assets/img/cubo-teste.jpg'},
-                {id: 2, nome: 'cubo 2', img: './assets/img/cubo-teste.jpg'},
+                {id: 1, nome: 'Boneco do Bob Esponja e Gary', imgs: ['./assets/img/boneco_bob_esponja_e_gary_1.webp', './assets/img/boneco_bob_esponja_e_gary_2.webp', './assets/img/boneco_bob_esponja_e_gary_3.webp']},
+                {id: 2, nome: 'Caneca Bob Esponja, Patrick e Gary', imgs: ['./assets/img/caneca_1.webp', './assets/img/caneca_2.webp', './assets/img/caneca_3.webp']},
+                {id: 3, nome: 'Garrafa térmica', imgs: ['./assets/img/garrafinha_1.webp', './assets/img/garrafinha_2.webp']},
+                {id: 4, nome: 'Mochila xadrez', imgs: ['./assets/img/mochila_1.webp', './assets/img/mochila_2.webp', './assets/img/mochila_3.webp']}
              ];
 
              const dado = ref();
@@ -83,10 +86,26 @@
                 dado.value = product
              };
 
+             const carrinho = ref(0)
+
+             const addCarrinho = () => {
+                carrinho.value++
+             }
+
+             const posicaoImagem = ref(0);
+
+             const mudarImagem = (i) => {
+                posicaoImagem.value = i
+             }
+
             return {
                produtos,
                dado, 
                mostrarProduto,
+               carrinho,
+               addCarrinho,
+               mudarImagem,
+               posicaoImagem,
             }
             }
         }).mount('#app')
