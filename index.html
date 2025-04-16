@@ -27,13 +27,20 @@
                     :key="produto.id"
                 >
                     <img :src="produto.imgs[0]">
-                    {{ produto.nome }}
+                    <p>{{ produto.nome }}</p>
                     
                 </div>
                 
             </section>
 
             <section v-if="dado" class="secao-dados">
+
+                <div class="secao-dados-menu">
+
+                    <img class="botao-voltar" @click="mostrarProduto()" src="./assets/img/down-arrow.png">
+                    <div><img src="./assets/img/shopping-cart.png" alt="Carrinho:"> {{ carrinho }}</div>
+
+                </div>
                 
                 <section class="secao-dados-imagem">
 
@@ -47,14 +54,9 @@
 
                 <section class="secao-dados-informacao">
 
-                    <div>
-                        <img class="botao-voltar" @click="mostrarProduto()" src="./assets/img/down-arrow.png">
-                        <div>Carrinho: {{ carrinho }}</div>
-                    </div>
-
                     <h1>{{ dado.nome }}</h1>
 
-                    <p>Preço</p>
+                    <p>R$ {{ dado.preco }}</p>
 
                     <button @click="addCarrinho" class="botao-carrinho">Adicionar ao carrinho</button>
 
@@ -74,10 +76,10 @@
             setup() {
              
              const produtos = [
-                {id: 1, nome: 'Boneco do Bob Esponja e Gary', imgs: ['./assets/img/boneco_bob_esponja_e_gary_1.webp', './assets/img/boneco_bob_esponja_e_gary_2.webp', './assets/img/boneco_bob_esponja_e_gary_3.webp']},
-                {id: 2, nome: 'Caneca Bob Esponja, Patrick e Gary', imgs: ['./assets/img/caneca_1.webp', './assets/img/caneca_2.webp', './assets/img/caneca_3.webp']},
-                {id: 3, nome: 'Garrafa térmica', imgs: ['./assets/img/garrafinha_1.webp', './assets/img/garrafinha_2.webp']},
-                {id: 4, nome: 'Mochila xadrez', imgs: ['./assets/img/mochila_1.webp', './assets/img/mochila_2.webp', './assets/img/mochila_3.webp']}
+                {id: 1, nome: 'Boneco do Bob Esponja e Gary', preco: '10,00', imgs: ['./assets/img/boneco_bob_esponja_e_gary_1.webp', './assets/img/boneco_bob_esponja_e_gary_2.webp', './assets/img/boneco_bob_esponja_e_gary_3.webp']},
+                {id: 2, nome: 'Caneca Bob Esponja, Patrick e Gary', preco: '10,00', imgs: ['./assets/img/caneca_1.webp', './assets/img/caneca_2.webp', './assets/img/caneca_3.webp']},
+                {id: 3, nome: 'Garrafa térmica', preco: '10,00', imgs: ['./assets/img/garrafinha_1.webp', './assets/img/garrafinha_2.webp']},
+                {id: 4, nome: 'Mochila xadrez', preco: '10,00', imgs: ['./assets/img/mochila_1.webp', './assets/img/mochila_2.webp', './assets/img/mochila_3.webp']}
              ];
 
              const dado = ref();

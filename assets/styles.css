@@ -28,6 +28,9 @@ main {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
+    max-width: 80vw;
+    justify-self: center;
+    margin: 0 auto 5rem;
 }
 
 .secao-produtos h1 {
@@ -35,6 +38,7 @@ main {
     grid-column: 1 / 4;
     font-size: 2rem;
     text-align: center;
+    margin: 5rem 0 2rem;
 }
 
 .item-produto {
@@ -45,13 +49,40 @@ main {
     border-radius: 5px;
 }
 
+.item-produto:hover {
+    box-shadow: 5px 5px 5px #FFD639;
+    transition: .2s;
+}
+
 .item-produto img {
     width: 70%;
+    cursor: pointer;
+}
+
+.item-produto p:hover {
+    cursor: pointer;
+    color: #FBAF00;
 }
 
 .secao-dados {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    margin: 1rem 0 5rem;
+}
+
+.secao-dados-menu {
+    display: flex;
+    grid-column: 2/3;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.secao-dados-menu > div {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+    margin-right: 10px;
 }
 
 .secao-dados-imagem {
@@ -80,6 +111,15 @@ main {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
+    padding: 1rem;
+}
+
+.secao-dados-informacao h1 {
+    font-size: 2rem;
+}
+
+.secao-dados-informacao p {
+    font-size: 1.5rem;
 }
 
 .botao-voltar {
@@ -106,8 +146,51 @@ main {
     border-radius: 5px;
     background-color: #FFD639;
     cursor: pointer;
+    font-size: 1rem;
 }
 
 .botao-carrinho:active {
     background-color: #FBAF00;
+}
+
+@media (max-width: 900px) {
+
+    .secao-produtos h1 {
+        grid-column: 1 / 4;
+    }
+
+    .secao-produtos {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 750px) {
+
+    .secao-produtos h1 {
+        grid-column: 1 / 3;
+    }
+
+    .secao-produtos {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .secao-dados {
+        grid-template-columns: 1fr;
+    }
+
+    .secao-dados-menu {
+        grid-column: 1 / 2;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .secao-produtos h1 {
+        grid-column: 1 / 2;
+    }
+
+    .secao-produtos {
+        grid-template-columns: 1fr;
+        max-width: 100vw;
+    }
 }
