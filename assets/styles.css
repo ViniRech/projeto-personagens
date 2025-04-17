@@ -44,6 +44,7 @@ main {
 .item-produto {
     display: grid;
     justify-items: center;
+    align-items: center;
     padding: 10px;
     border: 1px solid black;
     border-radius: 5px;
@@ -101,7 +102,9 @@ main {
 }
 
 .secao-dados-imagem > div > img {
-    width: 20%;
+    width: 7rem;
+    height: 7rem;
+    object-fit: cover;
     border: 1px solid black;
     border-radius: 5px;
 }
