@@ -156,6 +156,12 @@ main {
     background-color: #FBAF00;
 }
 
+.botaoDesativado {
+    background-color: #342E37;
+    color: #F0F3F5;
+    cursor: not-allowed;
+}
+
 @media (max-width: 900px) {
 
     .secao-produtos h1 {
