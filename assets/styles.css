@@ -18,6 +18,20 @@ body {
     font-family: "Space Grotesk", sans-serif;
 }
 
+header{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 3rem;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color:#FFD639;
+}
+
+header img {
+   width: 4rem;
+   width: 4rem;
+}
+
 main {
     display: flex;
     gap: 10px;
