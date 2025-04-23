@@ -59,7 +59,7 @@
 
                     <h1>{{ dado.nome }}</h1>
 
-                    <p>R$ {{ dado.preco }}</p>
+                    <p>R$ {{ dado.preco.toFixed(2).replace('.', ',') }}</p>
 
                     <p v-if="carrinho >= 30" style="color: crimson;">Limite máximo de compra atingido</p>
 
