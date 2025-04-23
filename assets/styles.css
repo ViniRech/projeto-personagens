@@ -176,6 +176,22 @@ main {
     cursor: not-allowed;
 }
 
+footer {
+    display: grid;
+    background-color: #F0F3F5;
+    justify-items: center;
+    padding: 3rem 20px;
+    gap: 1rem;
+
+    img {
+        width: 40rem;
+    }
+
+    p {
+        font-size: 10px;
+    }
+}
+
 @media (max-width: 900px) {
 
     .secao-produtos h1 {
