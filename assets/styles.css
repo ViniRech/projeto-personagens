@@ -23,7 +23,6 @@ header{
     align-items: center;
     gap: 1rem;
     padding: 3rem;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color:#FFD639;
 }
 
@@ -184,11 +183,12 @@ footer {
     gap: 1rem;
 
     img {
-        width: 40rem;
+        width: 65%;
     }
 
     p {
         font-size: 10px;
+        text-align: center;
     }
 }
 
