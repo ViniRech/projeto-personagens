@@ -17,8 +17,7 @@ const { createApp, ref } = Vue
             {id: 11, nome: 'Pelúcia do Seu Sirigueijo', preco: 59.99, imgs: ['./assets/img/pelucia-sr-siriguejo.webp', './assets/img/pelucia-sr-siriguejo-2.webp', './assets/img/pelucia-sr-siriguejo-3.webp']},
             {id: 12, nome: 'Funko Pop Mexilhãozinho', preco: 39.99, imgs: ['./assets/img/barnacle-boy.jpg']},
             {id: 13, nome: 'Carteira do Plankton', preco: 47.73, imgs: ['./assets/img/carteira-plankton.jpg', './assets/img/carteira-plankton-2.jpg', './assets/img/carteira-plankton-3.jpg']},
-            {id: 14, nome: 'Mochila do Gary', preco: 78.95, imgs: ['./assets/img/mochila-gary.jpg', './assets/img/mochila-gary-2.jpg', './assets/img/mochila-gary-3.jpg', './assets/img/mochila-gary-4.jpg']},
-            {id: 15, nome: 'Chaveiro do Patrick', preco: 9.99, imgs: ['./assets/img/chaveiro-patrick.jpg']},
+            {id: 14, nome: 'Chaveiro do Patrick', preco: 9.99, imgs: ['./assets/img/chaveiro-patrick.jpg']},
         ];
 
         const dado = ref();
